@@ -1,0 +1,1 @@
+A command-line tool that generates a static, browsable HTML archive from a folder of images. It reads from the filesystem, writes only generated artefacts, and never modifies original files. Built for longevity over cleverness, the kind of tool a non-technical family member can open in a browser in twenty years without knowing what a server is. 
