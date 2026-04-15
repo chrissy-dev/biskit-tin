@@ -1,0 +1,6 @@
+# AI tools
+.claude/
+.cursor/
+.aider*
+.copilot/
+*.ai-context
