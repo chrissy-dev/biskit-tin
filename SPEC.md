@@ -173,3 +173,27 @@ Biskit Tin supports image formats that a browser can display natively, without p
 - Resize or edit originals in any way
 
 > HEIC/HEIF is not supported. This is not a judgement on the format, it's excellent. Browser support is simply not consistent enough to rely on, and Biskit Tin will never silently convert your originals to make them work. If you want HEIC photos in your tin, export them as JPEG first.
+
+## The Browser is the App
+
+Biskit Tin generates HTML and gets out of the way. The browser is the interface - not an app, not a server, not a runtime. Just a file you open.
+
+Browsers are the most backwards-compatible software ever shipped. A valid HTML file from 2005 opens fine today. That's the bet.
+
+### Generated HTML rules
+
+- Must be valid, semantic HTML
+- Must be accessible - correct heading structure, keyboard navigable
+- No external resources. No CDN. No web fonts. No analytics. Nothing phoning home.
+- No JavaScript required to view images or navigate folders - progressive enhancement is allowed though.
+- JavaScript, if present, is enhancement only. Disable it and nothing breaks.
+
+### Customisation
+
+- Style is controlled entirely by `style.css`
+- The generated HTML structure is never changed to accommodate style - markup is markup, style is style
+- A user can replace `style.css` with their own. Biskit Tin will not overwrite a custom stylesheet on refresh, only on rebuild.
+
+### Why this works in twenty years
+
+A folder of HTML files and images on a hard drive needs nothing. No server, no subscription, no app store, no account. Plug in the drive, open the file. That's it. Your grandchildren don't need to know what Biskit Tin is to use what it made.
