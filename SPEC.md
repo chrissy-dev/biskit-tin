@@ -4,7 +4,7 @@ Named after the actual biscuit tin(s) I had in my upstairs cupboard in the 90s a
 
 ## What is this? 
 
-A command-line tool that generates a static, browsable HTML archive from a folder of images. It reads from the filesystem, writes only generated artefacts, and never modifies original files. Built for longevity over cleverness the kind of tool a non-technical family member can open in a browser in twenty years without knowing what a server is.
+A command-line tool that generates a static, browsable HTML archive from a folder of images. It reads from the filesystem, writes only generated artefacts, and never modifies original files. Built for longevity over cleverness -- the kind of tool a non-technical family member can open in a browser in twenty years without knowing what a server is.
 
 ## Core Principles
 
@@ -43,4 +43,15 @@ Biskit Tin expects and respects the following structure. It imposes nothing.
 - `.thumbs/` contains only generated thumbnails. Safe to delete, will be regenerated.
 - Any folder without images is ignored.
 
+## Tins
 
+A tin is a single managed image archive - a root folder that Biskit Tin knows about. You can have as many tins as you want, wherever you want. A tin on an external family hard drive and a tin for your photography work are completely independent.
+
+Biskit Tin maintains a local registry of tins so you can switch between them by name rather than path.
+
+- `biskit tin add <name> <path>` -- register a new tin
+- `biskit tin remove <name>` -- unregister a tin (does not delete anything)
+- `biskit tin list` -- list all registered tins
+- `biskit tin use <name>` -- set the active tin
+
+All other commands operate on the active tin unless a `--tin <name>` flag is passed.
