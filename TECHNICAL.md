@@ -96,3 +96,27 @@ make clean      # remove build artefacts
 - Real filesystem using `os.MkdirTemp` -- no mocking the filesystem
 - Tests live alongside the code they test (`_test.go` convention)
 - CI fails on any test failure or lint error
+
+## HTML Generation
+
+The generated HTML is the product. It needs to last. These are the rules the generator must follow without exception.
+
+### Rules
+
+- Output must be valid, semantic HTML5
+- No inline styles -- all styling via the single root `style.css`
+- No JavaScript in generated HTML -- enhancement only via an optional external script tag, never inline
+- No external resources of any kind -- no CDN, no web fonts, no analytics, no tracking pixels
+- Images must have descriptive alt attributes -- filename used as fallback if no metadata exists
+- Heading structure must be logical and consistent across all generated pages
+- All links must be relative -- never absolute paths, never protocol-relative
+- The root `index.html` must link to all direct child folder indexes
+- Each folder `index.html` must link back to its parent
+- Thumbnail images link to their originals
+
+### Template
+
+- A single `index.html.tmpl` drives all generated pages
+- Go's `html/template` package -- not a third party templating library
+- Template is embedded in the binary at build time using `embed.FS`
+- The default `style.css` is also embedded and written on first run or rebuild
