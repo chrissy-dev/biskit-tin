@@ -90,3 +90,30 @@ Inspects the active tin and reports its health without changing anything. Useful
 - `--dry-run` -- show what would happen without doing anything
 - `--verbose` -- detailed output
 
+## Generated Artefacts
+
+Biskit Tin generates the following and only the following. Nothing else is ever written.
+
+### `index.html`
+
+One per folder, one at the root. A static HTML page that displays the images in that folder and links to subfolders. No JavaScript required to view images. No external resources. No web fonts. No CDN calls. Opens in ny browser, on any machine, with no internet connection.
+
+### `.thumbs/`
+
+One per folder containing images. Contains resized copies of originals for faster page load. Thumbnails are the only derived copies of original files that Biskit Tin creates.
+
+- Originals are never touched
+- Thumbnail filenames mirror the original filenames
+- Safe to delete -- regenerated on next rebuild or refresh
+
+### `style.css`
+
+One file at the root of the tin. Shared across all generated indexes. Replaceable -- if a custom `style.css` exists at the root, Biskit Tin will not overwrite it on refresh, only on rebuild.
+
+### What is never generated
+
+- No JavaScript files
+- No databases or index files
+- No metadata files (those belong to the user)
+- No sidecar files alongside originals
+
