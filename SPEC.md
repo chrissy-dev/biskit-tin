@@ -55,3 +55,38 @@ Biskit Tin maintains a local registry of tins so you can switch between them by 
 - `biskit tin use <name>` -- set the active tin
 
 All other commands operate on the active tin unless a `--tin <name>` flag is passed.
+
+## Commands
+
+### `biskit rebuild`
+
+Nukes all generated artefacts and regenerates everything from scratch. The safe, trusted option. Use this after reorganising, when something looks wrong, or when you just want a clean state.
+- Deletes all generated `index.html` files
+- Deletes all `.thumbs/` folders
+- Deletes root `style.css`
+- Regenerates everything from scratch
+
+### `biskit refresh`
+
+Additive only. Detects what is missing and generates it. Never deletes anything. Use this after adding new photos to an already-organised archive.
+
+- Skips folders and images that already have generated artefacts
+- Does not regenerate existing thumbnails
+- Updates parent indexes if new folders are detected
+
+### `biskit status`
+
+Inspects the active tin and reports its health without changing anything. Useful before deciding whether to rebuild or refresh.
+
+- Reports missing indexes
+- Reports folders without thumbnails
+- Reports stale root index
+- Reports unrecognised files in generated locations
+- Exits with a non-zero code if the archive is incomplete
+
+### Global Flags
+
+- `--tin <name>` -- target a specific tin instead of the active one
+- `--dry-run` -- show what would happen without doing anything
+- `--verbose` -- detailed output
+
