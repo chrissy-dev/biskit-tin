@@ -1,0 +1,1 @@
+This tool is built in Go. I'm not a Go developer, but I feel Go is the right tool for this job. Single binary, cross-platform, fast, and boring in the best possible way. I'm building this spec-first and AI-assisted. The spec is the source of truth. The Go code is just what the spec became.
