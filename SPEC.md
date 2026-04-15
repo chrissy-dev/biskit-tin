@@ -14,3 +14,33 @@ A command-line tool that generates a static, browsable HTML archive from a folde
 - No server. No database. No internet connection. No dependencies on the user's machine.
 - A complete archive is a folder you can put on a hard drive and forget about for twenty years.
 - If it doesn't work with JavaScript disabled, it's broken.
+
+## Folder Structure
+
+Biskit Tin expects and respects the following structure. It imposes nothing.
+
+```
+📂 Photos/
+├── 📂 2024-Scotland-Trip/
+│    ├── 🖼 image1.jpg
+│    ├── 🖼 image2.png
+│    ├── 📄 meta.md  (optional)
+│    ├── 📂 .thumbs/ (generated)
+│    └── 📜 index.html (generated)
+│
+├── 📂 2023-Italy/
+│    ├── 🖼 photo.jpg
+│    ├── 📄 meta.md (optional)
+│    ├── 📂 .thumbs/ (generated)
+│    └── 📜 index.html (generated)
+│
+├── 📜 style.css (generated)
+└── 📜 index.html (generated)
+```
+
+- Folders are collections. Nesting is supported but not required.
+- `meta.md` is optional plain text or markdown. Biskit Tin reads it, never writes it.
+- `.thumbs/` contains only generated thumbnails. Safe to delete, will be regenerated.
+- Any folder without images is ignored.
+
+
