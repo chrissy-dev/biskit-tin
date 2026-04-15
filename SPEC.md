@@ -171,3 +171,5 @@ Biskit Tin supports image formats that a browser can display natively, without p
 - Process video
 - Handle HEIC/HEIF (browser support is inconsistent)
 - Resize or edit originals in any way
+
+> HEIC/HEIF is not supported. This is not a judgement on the format, it's excellent. Browser support is simply not consistent enough to rely on, and Biskit Tin will never silently convert your originals to make them work. If you want HEIC photos in your tin, export them as JPEG first.
