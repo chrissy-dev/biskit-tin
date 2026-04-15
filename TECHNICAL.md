@@ -120,3 +120,27 @@ The generated HTML is the product. It needs to last. These are the rules the gen
 - Go's `html/template` package -- not a third party templating library
 - Template is embedded in the binary at build time using `embed.FS`
 - The default `style.css` is also embedded and written on first run or rebuild
+
+## TUI
+
+Bubble Tea drives the interface. The TUI is not decorative -- it communicates what the tool is doing and whether it succeeded. That's it.
+
+### Principles
+
+- Output should feel calm and confident, not developer-tool noisy
+- No walls of log output
+- Progress should be visible for anything that takes more than a second -- thumbnail generation especially
+- Errors are clear and human. Not stack traces, not codes. Just what went wrong and what to do about it.
+
+### States
+
+- **Idle** -- active tin name shown, available commands hinted
+- **Running** -- spinner with a plain description of what's happening, progress bar for batch operations (thumbnail generation, index writing)
+- **Done** -- short summary. What was built, how many images, how long it took.
+- **Error** -- what failed, which file or folder if relevant, what to try next
+
+### Style
+
+- Lipgloss for colour and layout
+- Minimal colour -- muted, not loud
+- No ASCII art, no banners, no version splashes on every run
